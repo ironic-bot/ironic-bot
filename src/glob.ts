@@ -14,4 +14,7 @@ export function initDb() {
 	db.exec(
 		'CREATE TABLE IF NOT EXISTS words (guild_id TINYTEXT, user_id TINYTEXT, word TEXT, count INT);',
 	);
+	db.exec(
+		'CREATE TABLE IF NOT EXISTS eco (user_id TINYTEXT, money BIGINT)'
+	)
 }
