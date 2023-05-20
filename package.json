@@ -31,7 +31,7 @@
     "lint": "eslint . --ext .ts"
   },
   "author": "Ironic",
-  "license": "B",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "better-sqlite3": "^8.3.0",
     "canvas": "^2.11.2",
