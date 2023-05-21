@@ -11,6 +11,8 @@ import { commands, initDb } from './glob.js';
 
 import * as bing from './bing.js';
 
+import * as server from './server.js';
+
 const client = new Client({
 	intents:
 		GatewayIntentBits.Guilds |
@@ -23,6 +25,9 @@ const client = new Client({
 
 client.on('ready', async () => {
 	await bing.initialize();
+	
+	server.initialize(client);
+
 	console.log('Logged in as user', client?.user?.tag);
 	initDb();
 	// Event loader

@@ -9,32 +9,65 @@ export default class XPMiddleware implements IMiddleware {
 
 		const xpData = db
 			.prepare(
-				'SELECT xp, level, last_message_time FROM levels where user_id = ? AND guild_id = ?',
+				'SELECT xp, level, last_message_time FROM levels WHERE user_id = ? AND guild_id = ?',
 			)
 			.get(message.author.id, message.guild.id) as { xp: number; level: number; last_message_time: number };
 
-		const addXpAmount = getRandomNumberBetween(50, 100);
+			const settings = db
+			.prepare(
+				'SELECT rank_min_range, rank_max_range FROM settings WHERE guild_id = ?',
+			)
+			.get(message.guild.id) as { rank_min_range: number; rank_max_range: number };
+
+			const roles = db
+                .prepare(
+                    'SELECT role_id, level FROM rankroles WHERE guild_id = ?',
+                )
+                .all(message.guild.id) as { role_id: string; level: number }[];
+
+		const addXpAmount = getRandomNumberBetween(settings?.rank_min_range ?? 15, settings?.rank_max_range ?? 25);
 
 		if (xpData) {
 			if (Date.now() - xpData.last_message_time > 60000) {
-				const neededXpForNextLevel = calculateXpNeededForLevel(
+				let neededXpForNextLevel = calculateXpNeededForLevel(
 					xpData.level + 1,
 				);
-				const addedXp = xpData.xp + addXpAmount;
-				const leveledUp = addedXp > neededXpForNextLevel;
+				let addedXp = xpData.xp + addXpAmount;
+				const leveledUp = addedXp >= neededXpForNextLevel;
+				let level = xpData.level;
+
+				if (addedXp >= neededXpForNextLevel)
+                {
+                    level++;
+                    addedXp -= neededXpForNextLevel;
+                    while (addedXp >= neededXpForNextLevel)
+                    {
+                        level++;
+                        addedXp -= neededXpForNextLevel;
+                    }
+                    neededXpForNextLevel = calculateXpNeededForLevel(
+						level + 1,
+					);
+                }
+
+				const roleToAdd = [...roles].sort((a, b) => b.level - a.level).find(x => level >= x.level);
+				if(roleToAdd) {
+					message.member?.roles.add(roleToAdd.role_id);
+				}
+
 				db.prepare(
 					'UPDATE levels SET total_xp = total_xp + ?, xp = ?, level = ?, last_message_time = ? WHERE user_id = ? AND guild_id = ?',
 				).run(
 					addXpAmount,
-					leveledUp ? addedXp - neededXpForNextLevel : addedXp,
-					leveledUp ? xpData.level + 1 : xpData.level,
+					addedXp,
+					level,
 					Date.now(),
 					message.author.id,
 					message.guild.id,
 				);
 				if (leveledUp)
 					await message.reply(
-						"Congratulations! You've leveled up to level " + (xpData.level + 1).toString() + '.',
+						"Congratulations! You've leveled up to level " + level.toString() + '.',
 					);
 			}
 		} else
