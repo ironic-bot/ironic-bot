@@ -153,7 +153,7 @@ export default class implements ICommand {
 
 				db.prepare('UPDATE eco SET money = ? WHERE user_id = ?').run(
 					cash,
-					interaction.options.getUser('user')?.id,
+					interaction.options.getUser('target')?.id,
 				);
 
 				await interaction.reply({
