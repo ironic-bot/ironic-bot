@@ -94,7 +94,7 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
   }
 });
 
-app.use((_req: express.Request, res: express.Response, _next: express.NextFunction) => {
+app.use((_req: express.Request, res: express.Response) => {
   res.status(404).send({ error: "Not found." });
 });
 

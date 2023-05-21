@@ -28,7 +28,7 @@ export default class implements ICommand {
     async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (interaction.options.getSubcommand() === 'rankmin' || interaction.options.getSubcommand() === 'rankmax') {
 
-            let settings = db
+            const settings = db
                 .prepare(
                     'SELECT rank_min_range, rank_max_range FROM settings WHERE guild_id = ?',
                 )
