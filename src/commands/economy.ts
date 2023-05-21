@@ -8,7 +8,7 @@ import {
 
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
-		.setName('eco')
+		.setName('economy')
 		.setDescription('Economy! Play with $IRON, the new bot currency!')
 		.addSubcommand((x) =>
 			x
@@ -110,6 +110,7 @@ export default class implements ICommand {
 				if (cash == null) {
 					await interaction.reply({
 						content: 'There was an error while executing this command!',
+						ephemeral: true
 					});
 					return;
 				}
@@ -145,6 +146,7 @@ export default class implements ICommand {
 				if (cash == null) {
 					await interaction.reply({
 						content: 'There was an error while executing this command!',
+						ephemeral: true
 					});
 					return;
 				}
@@ -175,10 +177,11 @@ export default class implements ICommand {
 				await interaction.reply({ content: "Why would you want to ban another user? That's rude... I'm taking that $IRON, though." });
 				break;
 			case 'gamble': {
-				const cash = interaction.options.getInteger('cash');
+				const cash = interaction.options.getInteger('iron');
 				if (cash == null) {
 					await interaction.reply({
 						content: 'There was an error while executing this command!',
+						ephemeral: true
 					});
 					return;
 				}
@@ -192,7 +195,6 @@ export default class implements ICommand {
 
 				userData.money -= cash;
 				const moneyMultiplier = weightedRandomNumber();
-				console.log(moneyMultiplier);
 				const multipliedMoney = Math.floor(cash * moneyMultiplier);
 				userData.money += multipliedMoney;
 				const difference = multipliedMoney - cash;
