@@ -9,15 +9,15 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('eco')
-		.setDescription('economy')
+		.setDescription('Economy! Play with $IRON, the new bot currency!')
 		.addSubcommand((x) =>
 			x
 				.setName('add')
-				.setDescription('give me cash')
+				.setDescription('Adds a certain amount of $IRON to you')
 				.addIntegerOption((opt) =>
 					opt
-						.setName('cash')
-						.setDescription('how money')
+						.setName('iron')
+						.setDescription('The quantity of $IRON to add')
 						.setMinValue(0)
 						.setMaxValue(10000)
 						.setRequired(true),
@@ -26,11 +26,11 @@ export default class implements ICommand {
 		.addSubcommand((x) =>
 			x
 				.setName('remove')
-				.setDescription('remove me cash')
+				.setDescription('Removes a certain amount of $IRON from you')
 				.addIntegerOption((opt) =>
 					opt
-						.setName('cash')
-						.setDescription('how money')
+						.setName('iron')
+						.setDescription('The quantity of $IRON to remove')
 						.setMinValue(0)
 						.setRequired(true),
 				),
@@ -38,42 +38,43 @@ export default class implements ICommand {
 		.addSubcommand((x) =>
 			x
 				.setName('set')
-				.setDescription("set someone's money")
+				.setDescription("Sets someone's $IRON")
 				.addUserOption((opt) =>
 					opt
-						.setName('user')
-						.setDescription('user to set money for')
+						.setName('target')
+						.setDescription('The user to set $IRON')
 						.setRequired(true),
 				)
 				.addIntegerOption((opt) =>
 					opt
-						.setName('cash')
-						.setDescription('how much cash to set')
+						.setName('iron')
+						.setDescription('The quantity of $IRON to set')
 						.setRequired(true),
 				),
 		)
 		.addSubcommand((x) =>
-			x.setName('balance').setDescription('how much money you have'),
+			x.setName('balance').setDescription('Your quantity of $IRON'),
 		)
 		.addSubcommand((x) =>
 			x
 				.setName('buyban')
-				.setDescription('Purchase the banishment of another user. ($1,000,000)')
+				.setDescription('Purchase the ban of another user. ($IRON 1,000,000)')
 				.addUserOption((opt) =>
 					opt
-						.setName('user')
-						.setDescription('User select to purcahse for banishment')
+						.setName('target')
+						.setDescription('The user to ban')
 						.setRequired(true),
 				),
 		)
 		.addSubcommand((x) =>
 			x
 				.setName('gamble')
-				.setDescription('its not an addiction!!')
+				.setDescription('Gamble some money, win or lose!')
 				.addIntegerOption((x) =>
 					x
-						.setName('cash')
-						.setDescription('how much to gamble (your life savings)')
+						.setName('iron')
+						.setDescription('The quantity to gamble')
+						.setMinValue(0)
 						.setRequired(true),
 				),
 		);
@@ -85,11 +86,11 @@ export default class implements ICommand {
 		const userData = getUser(interaction.user.id);
 		switch (interaction.options.getSubcommand()) {
 			case 'add': {
-				const cash = interaction.options.getInteger('cash');
+				const cash = interaction.options.getInteger('iron');
 				if (cash == null) {
 					await interaction.reply({
 						ephemeral: true,
-						content: 'cash was null?? how?!?!?',
+						content: 'There was an error while executing this command!',
 					});
 					return;
 				}
@@ -100,15 +101,15 @@ export default class implements ICommand {
 					interaction.user.id,
 				);
 				await interaction.reply({
-					content: `ok, you now have $${userData.money}`,
+					content: `Your new balance is $IRON ${userData.money}.`,
 				});
 				break;
 			}
 			case 'remove': {
-				const cash = interaction.options.getInteger('cash');
+				const cash = interaction.options.getInteger('iron');
 				if (cash == null) {
 					await interaction.reply({
-						content: 'cash was null?? how?!?!?',
+						content: 'There was an error while executing this command!',
 					});
 					return;
 				}
@@ -116,7 +117,7 @@ export default class implements ICommand {
 				if (cash > userData.money) {
 					await interaction.reply({
 						content:
-							'umm akcshually... 🤓 you have less than that amount 🤓🤓🤓',
+							'You have less money than the amount to remove!',
 					});
 					return;
 				}
@@ -128,7 +129,7 @@ export default class implements ICommand {
 				);
 
 				await interaction.reply({
-					content: `ok, you now have $${userData.money}`,
+					content: `Your new balance is $IRON ${userData.money}.`,
 				});
 				break;
 			}
@@ -136,14 +137,14 @@ export default class implements ICommand {
 				if (interaction.user.id != process.env.OWNER_ID) {
 					await interaction.reply({
 						ephemeral: true,
-						content: 'ur not allowed to use this',
+						content: 'This command can only be used by the bot owner.',
 					});
 					return;
 				}
-				const cash = interaction.options.getInteger('cash');
+				const cash = interaction.options.getInteger('iron');
 				if (cash == null) {
 					await interaction.reply({
-						content: 'cash was null?? how?!?!?',
+						content: 'There was an error while executing this command!',
 					});
 					return;
 				}
@@ -154,14 +155,14 @@ export default class implements ICommand {
 				);
 
 				await interaction.reply({
-					content: 'ok i set it',
+					content: '$IRON set to the value specified.',
 				});
 				break;
 			}
 			case 'buyban':
 				if (userData.money < 1000000) {
 					await interaction.reply({
-						content: 'you need more money',
+						content: "You don't have enough $IRON!",
 					});
 					return;
 				}
@@ -171,27 +172,20 @@ export default class implements ICommand {
 					interaction.user.id,
 				);
 
-				await interaction.reply({ content: 'get scammed, you just lost 1m' });
+				await interaction.reply({ content: "Why would you want to ban another user? That's rude... I'm taking that $IRON, though." });
 				break;
 			case 'gamble': {
 				const cash = interaction.options.getInteger('cash');
 				if (cash == null) {
 					await interaction.reply({
-						content: 'cash was null?? how?!?!?',
-					});
-					return;
-				}
-
-				if (cash < 0) {
-					await interaction.reply({
-						content: 'Hey... thats not a valid amount!!!!',
+						content: 'There was an error while executing this command!',
 					});
 					return;
 				}
 
 				if (cash > userData.money) {
 					await interaction.reply({
-						content: "YOU CAN'T GAMBLE MONEY YOU DON'T HAVE...",
+						content: "You don't have that much $IRON!",
 					});
 					return;
 				}
@@ -209,21 +203,21 @@ export default class implements ICommand {
 				);
 
 				await interaction.reply({
-					content: `woah... ur $${cash} turned into $${multipliedMoney}, so you ${
+					content: `The $IRON ${cash} you gambled is now $IRON ${multipliedMoney}! That means you ${
 						difference < 0 ? 'lost' : 'gained'
-					} $${Math.abs(difference)}`,
+					} $IRON ${Math.abs(difference)}.`,
 				});
 
 				break;
 			}
 
 			case 'balance':
-				await interaction.reply(`you have $${userData.money}`);
+				await interaction.reply(`You have $IRON ${userData.money}.`);
 				break;
 			default:
 				await interaction.reply({
 					ephemeral: true,
-					content: 'command not implemented',
+					content: 'Command not implemented.',
 				});
 				break;
 		}
