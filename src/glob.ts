@@ -14,4 +14,10 @@ export function initDb() {
 	db.exec(
 		'CREATE TABLE IF NOT EXISTS words (guild_id TINYTEXT, user_id TINYTEXT, word TEXT, count INT);',
 	);
+	db.exec(
+		'CREATE TABLE IF NOT EXISTS settings (guild_id TINYTEXT, rank_min_range INT, rank_max_range INT);',
+	);
+	db.exec(
+		'CREATE TABLE IF NOT EXISTS rankroles (guild_id TINYTEXT, role_id TINYTEXT, level INT);',
+	);
 }
