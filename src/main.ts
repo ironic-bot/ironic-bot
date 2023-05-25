@@ -7,11 +7,12 @@ import detectTSNode from 'detect-ts-node';
 import { config } from 'dotenv';
 config();
 
-import { commands, initDb } from './glob.js';
+import { commands, db, initDb } from './glob.js';
 
 import * as bing from './bing.js';
 
 import * as server from './server.js';
+import { calculatePercentageChange, getRandomNumberBetween } from './utils.js';
 
 const client = new Client({
 	intents:
@@ -23,9 +24,11 @@ const client = new Client({
 		GatewayIntentBits.GuildModeration,
 });
 
+let stocksNeededTime: number;
+
 client.on('ready', async () => {
 	await bing.initialize();
-	
+
 	server.initialize(client);
 
 	console.log('Logged in as user', client?.user?.tag);
@@ -68,6 +71,32 @@ client.on('ready', async () => {
 			console.log(e);
 		}
 	}
+
+	modifyStocks();
+
+	setInterval(() => modifyStocks, 60000);
 });
 
+export { stocksNeededTime };
+
 client.login(process.env.DISCORD_TOKEN);
+
+function modifyStocks() {
+	const stocks = db.prepare('SELECT * from stocks').all() as { name: string, price: number, percent_change: string }[];
+
+	stocks.forEach(stock => {
+		const change = getRandomNumberBetween(((getRandomNumberBetween(0, (stock.price - 1))) * -1), 1000);
+		const newPrice = stock.price + change;
+		const percentChange = calculatePercentageChange(stock.price, newPrice);
+
+		db.prepare(
+			'UPDATE stocks SET price = ?, percent_change = ? WHERE name = ?',
+		).run(
+			newPrice,
+			percentChange,
+			stock.name
+		);
+	});
+
+	stocksNeededTime = Date.now() + 60000;
+}
