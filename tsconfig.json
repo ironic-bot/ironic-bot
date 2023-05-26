@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
+    "target": "ESNext",
+    "module": "ESNext",
     "lib": [
-      "ES2020"
+      "ESNext"
     ],
-    "moduleResolution": "node16",
+    "moduleResolution": "nodenext",
     "rootDir": ".",
     "outDir": "build",
     "allowSyntheticDefaultImports": true,
@@ -19,7 +19,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"

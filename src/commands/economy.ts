@@ -6,6 +6,8 @@ import {
 	ChatInputCommandInteraction,
 } from 'discord.js';
 import { stocksNeededTime } from '../main.js';
+import jobMessages from '../../jobMessages.json' assert { type: 'json' };
+import { getRandomNumberBetween } from '../utils.js';
 
 type YourStocks = {
 	user_id: string;
@@ -43,6 +45,9 @@ export default class implements ICommand {
 		)
 		.addSubcommand((x) =>
 			x.setName('balance').setDescription('Your money'),
+		)
+		.addSubcommand((x) =>
+			x.setName('work').setDescription('Work for some money!'),
 		)
 		.addSubcommandGroup((x) =>
 			x.setName('stocks').setDescription('Fun & Stocks!').addSubcommand((x) =>
@@ -180,6 +185,18 @@ export default class implements ICommand {
 
 			case 'balance':
 				await interaction.reply(`You have ¥${userData.money}.`);
+				break;
+			case 'work':
+				const job = jobMessages[Math.floor(Math.random() * jobMessages.length)];
+				const payment = getRandomNumberBetween(job.min, job.max);
+
+				userData.money += payment;
+				db.prepare('UPDATE eco SET money = ? WHERE user_id = ?').run(
+					userData.money,
+					interaction.user.id,
+				);
+
+				await interaction.reply(job.message.replace('[PAYMENT]', payment.toString()));
 				break;
 			case 'look':
 				await interaction.reply('Stock prices:\n\n' + stocks.map(x => `Name: \`$${x.name.toUpperCase()}\` | Price: \`¥${x.price}\` | Change: \`${x.percent_change}\``).join('\n') + `\n\nThese update every minute, so the next update will be in ${Math.floor((stocksNeededTime - Date.now()) / 1000)} seconds. **Buy low, sell high!**`);

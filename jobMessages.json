@@ -1,0 +1,103 @@
+[
+    {
+      "message": "As a software engineer, you successfully implemented a new feature and earned a payment of ¥[PAYMENT]. Great job!",
+      "min": 200,
+      "max": 250
+    },
+    {
+      "message": "In your role as a graphic designer, you created an eye-catching logo and earned a payment of ¥[PAYMENT]. Your creativity shines!",
+      "min": 100,
+      "max": 150
+    },
+    {
+      "message": "As a financial analyst, you conducted a comprehensive market analysis and received a payment of ¥[PAYMENT]. Your insights are invaluable!",
+      "min": 300,
+      "max": 350
+    },
+    {
+      "message": "As a content writer, you delivered an engaging article and earned a payment of ¥[PAYMENT]. Well done!",
+      "min": 80,
+      "max": 120
+    },
+    {
+      "message": "In your position as a project manager, you successfully led a team to complete a complex project and earned a payment of ¥[PAYMENT]. Exceptional leadership!",
+      "min": 400,
+      "max": 450
+    },
+    {
+      "message": "As a customer support representative, you resolved a challenging customer issue and earned a payment of ¥[PAYMENT]. Your dedication is commendable!",
+      "min": 50,
+      "max": 80
+    },
+    {
+      "message": "In your capacity as a marketing specialist, you developed a highly successful social media campaign and earned a payment of ¥[PAYMENT]. Your strategies are outstanding!",
+      "min": 200,
+      "max": 250
+    },
+    {
+      "message": "As a data analyst, you discovered actionable insights from a large dataset and earned a payment of ¥[PAYMENT]. Your analytical skills are impressive!",
+      "min": 150,
+      "max": 200
+    },
+    {
+      "message": "In your role as a sales representative, you closed a significant deal and earned a payment of ¥[PAYMENT]. Your sales acumen is remarkable!",
+      "min": 300,
+      "max": 350
+    },
+    {
+      "message": "As a UX/UI designer, you created an intuitive user interface and earned a payment of ¥[PAYMENT]. Your designs are aesthetically pleasing and functional!",
+      "min": 120,
+      "max": 180
+    },
+    {
+      "message": "In your position as a human resources manager, you conducted a successful recruitment drive and earned a payment of ¥[PAYMENT]. Your talent acquisition skills are exceptional!",
+      "min": 150,
+      "max": 200
+    },
+    {
+      "message": "As a research scientist, you made a groundbreaking discovery and earned a payment of ¥[PAYMENT]. Your contributions to the field are highly valued!",
+      "min": 200,
+      "max": 250
+    },
+    {
+      "message": "As an operations manager, you streamlined the supply chain process and earned a payment of ¥[PAYMENT]. Your efficiency is commendable!",
+      "min": 100,
+      "max": 150
+    },
+    {
+      "message": "In your role as a legal consultant, you provided expert advice on a complex case and earned a payment of ¥[PAYMENT]. Your legal expertise is highly regarded!",
+      "min": 50,
+      "max": 75
+    },
+    {
+      "message": "As a healthcare professional, you went the extra mile to ensure patient care and earned a payment of ¥[PAYMENT]. Your compassion and dedication are exceptional!",
+      "min": 80,
+      "max": 120
+    },
+    {
+      "message": "In your capacity as an accountant, you reconciled financial statements with precision and earned a payment of ¥[PAYMENT]. Your attention to detail is remarkable!",
+      "min": 75,
+      "max": 100
+    },
+    {
+      "message": "As an architect, you designed an innovative building that garnered acclaim and earned a payment of ¥[PAYMENT]. Your vision is truly inspiring!",
+      "min": 300,
+      "max": 350
+    },
+    {
+      "message": "In your position as a teacher, you implemented effective teaching strategies and earned a payment of ¥[PAYMENT]. Well done!",
+      "min": 80,
+      "max": 120
+    },
+    {
+      "message": "As a project coordinator, you successfully managed a large-scale event and earned a payment of ¥[PAYMENT]. Your organizational skills are outstanding!",
+      "min": 80,
+      "max": 120
+    },
+    {
+      "message": "As a consultant, you provided valuable insights that improved a client's business strategy and earned a payment of ¥[PAYMENT]. Your expertise is highly appreciated!",
+      "min": 100,
+      "max": 150
+    }
+  ]
+  
