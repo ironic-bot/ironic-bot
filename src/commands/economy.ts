@@ -186,7 +186,7 @@ export default class implements ICommand {
 			case 'balance':
 				await interaction.reply(`You have ¥${userData.money}.`);
 				break;
-			case 'work':
+			case 'work': {
 				const job = jobMessages[Math.floor(Math.random() * jobMessages.length)];
 				const payment = getRandomNumberBetween(job.min, job.max);
 
@@ -198,6 +198,7 @@ export default class implements ICommand {
 
 				await interaction.reply(job.message.replace('[PAYMENT]', payment.toString()));
 				break;
+			}
 			case 'look':
 				await interaction.reply('Stock prices:\n\n' + stocks.map(x => `Name: \`$${x.name.toUpperCase()}\` | Price: \`¥${x.price}\` | Change: \`${x.percent_change}\``).join('\n') + `\n\nThese update every minute, so the next update will be in ${Math.floor((stocksNeededTime - Date.now()) / 1000)} seconds. **Buy low, sell high!**`);
 				break;
