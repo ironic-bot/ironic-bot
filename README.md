@@ -1,6 +1,6 @@
 # Ionic
-[![CodeFactor](https://www.codefactor.io/repository/github/ionic-bot/bot/badge)](https://www.codefactor.io/repository/github/ionic-bot/bot)\
-Revolutionize Your Discord Experience.
+Revolutionize Your Discord Experience.\
+[![CodeFactor](https://www.codefactor.io/repository/github/ionic-bot/bot/badge)](https://www.codefactor.io/repository/github/ionic-bot/bot)
 
 # Setup
 1. Copy/rename the `.env.example` file as `.env`
