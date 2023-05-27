@@ -1,6 +1,9 @@
 # Ionic
 Revolutionize Your Discord Experience.
 
+
+[![CodeFactor](https://www.codefactor.io/repository/github/ionic-bot/bot/badge)](https://www.codefactor.io/repository/github/ionic-bot/bot)
+
 # Setup
 1. Copy/rename the `.env.example` file as `.env`
 2. Fill the values. The cookie file is created with Cookie-Editor on the Bing.com website. Note that this may be a privacy issue, so you don't need it unless you want the Bing command. (And we recommend using a new account for this - not your main)
