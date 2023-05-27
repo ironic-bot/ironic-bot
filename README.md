@@ -1,4 +1,5 @@
 # Ionic
+[![CodeFactor](https://www.codefactor.io/repository/github/ionic-bot/bot/badge)](https://www.codefactor.io/repository/github/ionic-bot/bot)
 Revolutionize Your Discord Experience.
 
 # Setup
