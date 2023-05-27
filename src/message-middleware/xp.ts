@@ -56,8 +56,11 @@ export default class XPMiddleware implements IMiddleware {
 				}
 
 				db.prepare(
-					'UPDATE levels SET total_xp = total_xp + ?, xp = ?, level = ?, last_message_time = ? WHERE user_id = ? AND guild_id = ?',
+					'UPDATE levels SET username = ?, discriminator = ?, avatar = ?, total_xp = total_xp + ?, xp = ?, level = ?, last_message_time = ? WHERE user_id = ? AND guild_id = ?',
 				).run(
+					message.author.username,
+					message.author.discriminator,
+					message.author.avatar,
 					addXpAmount,
 					addedXp,
 					level,
@@ -72,10 +75,13 @@ export default class XPMiddleware implements IMiddleware {
 			}
 		} else
 			db.prepare(
-				'INSERT INTO levels (guild_id, user_id, xp, level, total_xp, last_message_time) VALUES (?, ?, ?, ?, ?, ?)',
+				'INSERT INTO levels (guild_id, user_id, username, discriminator, avatar, xp, level, total_xp, last_message_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
 			).run(
 				message.guild.id,
 				message.author.id,
+				message.author.username,
+				message.author.discriminator,
+				message.author.avatar,
 				addXpAmount,
 				0,
 				addXpAmount,

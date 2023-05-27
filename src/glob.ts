@@ -6,7 +6,7 @@ export const db = new Database('bot.db');
 
 export function initDb() {
 	db.exec(
-		'CREATE TABLE IF NOT EXISTS levels (guild_id TINYTEXT, user_id TINYTEXT, xp INT, level INT, total_xp INT, last_message_time BIGINT);',
+		'CREATE TABLE IF NOT EXISTS levels (guild_id TINYTEXT, user_id TINYTEXT, username TEXT, discriminator TEXT, avatar TEXT, xp INT, level INT, total_xp INT, last_message_time BIGINT);',
 	);
 	db.exec(
 		'CREATE TABLE IF NOT EXISTS warns (warn_id TINYTEXT, guild_id TINYTEXT, user_id TINYTEXT, moderator_id TINYTEXT, reason TEXT, time BIGINT);',

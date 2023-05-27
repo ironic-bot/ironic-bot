@@ -1,5 +1,5 @@
-# Ironic
-The evolution of Ironix. A Discord bot that will make your Discord experience unique. *Isn't that ironic?*
+# Ionic
+Revolutionize Your Discord Experience.
 
 # Setup
 1. Copy/rename the `.env.example` file as `.env`

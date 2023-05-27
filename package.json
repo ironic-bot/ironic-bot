@@ -1,7 +1,7 @@
 {
-  "name": "ironic",
+  "name": "ionic",
   "version": "0.0.0",
-  "description": "The evolution of Ironix. A Discord bot that will make your Discord experience unique.",
+  "description": "Revolutionize Your Discord Experience.",
   "type": "module",
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.4",
@@ -31,7 +31,7 @@
     "build:release": "npm run clean && tsc -p tsconfig.release.json",
     "lint": "eslint . --ext .ts"
   },
-  "author": "Ironic",
+  "author": "Ionic",
   "license": "BSD-3-Clause",
   "dependencies": {
     "better-sqlite3": "^8.3.0",
