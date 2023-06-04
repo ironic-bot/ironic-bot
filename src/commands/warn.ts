@@ -12,7 +12,7 @@ import { SnowflakeUtil } from 'discord.js';
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('warn')
-		.setDescription('Warns an user')
+		.setDescription('Warns an user.')
 		.addUserOption(option => option.setName('target').setDescription("The user to warn").setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription("The reason to warn").setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers);

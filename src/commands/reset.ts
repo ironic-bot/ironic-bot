@@ -5,7 +5,7 @@ import * as bing from '../bing.js';
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('reset')
-		.setDescription('Resets the current Bing Chat conversation');
+		.setDescription('Resets the current Bing Chat conversation.');
 
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		bing.reset();

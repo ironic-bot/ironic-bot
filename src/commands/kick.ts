@@ -10,7 +10,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('kick')
-		.setDescription('Kicks an user')
+		.setDescription('Kicks an user.')
 		.addUserOption(option => option.setName('target').setDescription('The user to kick').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.KickMembers);
 

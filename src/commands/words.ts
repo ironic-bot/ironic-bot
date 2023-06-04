@@ -10,7 +10,7 @@ import {
 export default class implements ICommand {
     data = new SlashCommandBuilder()
         .setName('words')
-        .setDescription("Shows an user's (or the server's) top 10 words")
+        .setDescription("Shows an user's (or the server's) top 10 words.")
         .addUserOption(option => option.setName('target').setDescription('The user to check'));
 
     async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {

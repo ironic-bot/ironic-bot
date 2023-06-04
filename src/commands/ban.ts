@@ -10,7 +10,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('ban')
-		.setDescription('Bans an user')
+		.setDescription('Bans an user.')
 		.addUserOption(option => option.setName('target').setDescription('The user to ban').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers);
 

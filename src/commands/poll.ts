@@ -9,7 +9,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('poll')
-		.setDescription('Creates a poll')
+		.setDescription('Creates a poll.')
 		.addStringOption(option => option.setName('question').setDescription("The question to ask").setRequired(true))
 		.addStringOption(option => option.setName('answeri').setDescription("A custom answer"))
 		.addStringOption(option => option.setName('answerii').setDescription("A custom answer"))

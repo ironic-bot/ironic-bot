@@ -10,7 +10,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('warns')
-		.setDescription("Look at an user's warns")
+		.setDescription("Look at an user's warns.")
 		.addUserOption(option => option.setName('target').setDescription("The user to look at").setRequired(true))
 
 	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {

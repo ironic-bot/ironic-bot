@@ -15,7 +15,7 @@ registerFont('./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf', {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('rank')
-		.setDescription("Shows an user's rank in the server")
+		.setDescription("Shows an user's rank in the server.")
 		.addUserOption(option => option.setName('target').setDescription('The user to check'));
 
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {

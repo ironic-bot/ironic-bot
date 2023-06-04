@@ -6,7 +6,7 @@ import * as bing from '../bing.js';
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('bing')
-		.setDescription('Chat with Bing! The conversation is kept until you end it')
+		.setDescription('Chat with Bing! The conversation is kept until you end it.')
 		.addStringOption(option => option.setName('message').setDescription('The message to send').setRequired(true))
 		.addStringOption(option => option.setName('style').setDescription('The conversation style')
 		.addChoices(

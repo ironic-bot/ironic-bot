@@ -5,22 +5,22 @@ import { db } from '../glob.js';
 export default class implements ICommand {
     data = new SlashCommandBuilder()
         .setName('settings')
-        .setDescription('Change your server settings')
+        .setDescription('Change your server settings.')
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rankmin')
-                .setDescription('Minimum XP the bot will give to a player')
+                .setDescription('Minimum XP the bot will give to a player.')
                 .addNumberOption(option => option.setName('xp').setDescription('The minimum XP').setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rankmax')
-                .setDescription('Maximum XP the bot will give to a player')
+                .setDescription('Maximum XP the bot will give to a player.')
                 .addNumberOption(option => option.setName('xp').setDescription('The maximum XP').setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('levelrole')
-                .setDescription('Configures a role to be automatically added at a certain level. Leave role empty to clear')
+                .setDescription('Configures a role to be automatically added at a certain level. Leave role empty to clear.')
                 .addNumberOption(option => option.setName('level').setDescription('The level number').setRequired(true))
                 .addRoleOption(option => option.setName('role').setDescription('The role'))
         )

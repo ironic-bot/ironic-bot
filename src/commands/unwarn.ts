@@ -12,7 +12,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('unwarn')
-		.setDescription('Unwarns an user')
+		.setDescription('Unwarns an user.')
 		.addStringOption(option => option.setName('target').setDescription("The warn's ID").setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers);
 

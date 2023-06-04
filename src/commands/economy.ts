@@ -31,7 +31,7 @@ export default class implements ICommand {
 		.addSubcommand((x) =>
 			x
 				.setName('set')
-				.setDescription("Sets someone's money")
+				.setDescription("Sets someone's money.")
 				.addUserOption((opt) =>
 					opt
 						.setName('target')
@@ -46,20 +46,20 @@ export default class implements ICommand {
 				),
 		)
 		.addSubcommand((x) =>
-			x.setName('balance').setDescription('Your money'),
+			x.setName('balance').setDescription('Your money.'),
 		)
 		.addSubcommand((x) =>
-			x.setName('work').setDescription('Work for some money!'),
+			x.setName('work').setDescription('Work and get money.'),
 		)
 		.addSubcommandGroup((x) =>
 			x.setName('stocks').setDescription('Fun & Stocks!').addSubcommand((x) =>
-				x.setName('look').setDescription('Look at the stocks')
+				x.setName('look').setDescription('Look at the stocks.')
 			)
 				.addSubcommand((x) =>
-					x.setName('lookyou').setDescription('Look at your stocks')
+					x.setName('lookyou').setDescription('Look at your stocks.')
 				)
 				.addSubcommand((x) =>
-					x.setName('buy').setDescription("Buy stocks")
+					x.setName('buy').setDescription("Buy stocks.")
 						.addStringOption(option => option.setName('stocks').setDescription('The stocks to buy')
 							.addChoices(
 								{ 'name': '$CRL', value: 'crl' },
@@ -77,7 +77,7 @@ export default class implements ICommand {
 						.addIntegerOption((x) => x.setName('quantity').setDescription('The quantity of stocks to buy').setMinValue(1).setMaxValue(100).setRequired(true))
 				)
 				.addSubcommand((x) =>
-					x.setName('sell').setDescription("Sell your stocks")
+					x.setName('sell').setDescription("Sell your stocks.")
 						.addStringOption(option => option.setName('stocks').setDescription('The stocks to sell')
 							.addChoices(
 								{ 'name': '$CRL', value: 'crl' },
@@ -98,7 +98,7 @@ export default class implements ICommand {
 		.addSubcommand((x) =>
 			x
 				.setName('gamble')
-				.setDescription('Gamble some money, win or lose!')
+				.setDescription('Gamble some money, will you get more or less?')
 				.addIntegerOption((x) =>
 					x
 						.setName('money')

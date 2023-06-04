@@ -9,7 +9,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('unban')
-		.setDescription('Unbans an user')
+		.setDescription('Unbans an user.')
 		.addStringOption(option => option.setName('target').setDescription('The ID of user to unban').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers);
 

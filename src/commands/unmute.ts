@@ -11,7 +11,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('unmute')
-		.setDescription('Unmutes an user')
+		.setDescription('Unmutes an user.')
 		.addUserOption(option => option.setName('target').setDescription('The user to unmute').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers);
 

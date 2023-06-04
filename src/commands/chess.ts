@@ -54,18 +54,18 @@ export default class implements ICommand {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('start')
-                .setDescription('Start a chess game with another member! (or the bot!)')
+                .setDescription('Start a chess game with the bot or another member!')
                 .addUserOption(option => option.setName('target').setDescription('The user to challenge').setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('move')
-                .setDescription('Move a piece on the board')
+                .setDescription('Move a piece on the board.')
                 .addStringOption(option => option.setName('from').setDescription('The algebraic notation of the piece to move').setRequired(true))
                 .addStringOption(option => option.setName('to').setDescription('The algebraic notation of the destination').setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('end')
-                .setDescription('End a chess game'))
+                .setDescription('End a chess game.'))
 
     async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (interaction.options.getSubcommand() === 'start') {

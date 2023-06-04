@@ -10,7 +10,7 @@ import {
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
 		.setName('mute')
-		.setDescription('Mutes an user')
+		.setDescription('Mutes an user.')
 		.addUserOption(option => option.setName('target').setDescription('The user to mute').setRequired(true))
 		.addStringOption(option => option.setName('time').setDescription('Time in WdXhYmZs format').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('The reason').setRequired(true))
