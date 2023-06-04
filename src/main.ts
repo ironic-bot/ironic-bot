@@ -24,8 +24,6 @@ const client = new Client({
 		GatewayIntentBits.GuildModeration,
 });
 
-let stocksNeededTime: number;
-
 client.on('ready', async () => {
 	await bing.initialize();
 
@@ -72,16 +70,14 @@ client.on('ready', async () => {
 		}
 	}
 
-	modifyStocks();
+	modifyStocks(global);
 
-	setInterval(() => modifyStocks, 60000);
+	setInterval(modifyStocks, 60000, global);
 });
-
-export { stocksNeededTime };
 
 client.login(process.env.DISCORD_TOKEN);
 
-function modifyStocks() {
+function modifyStocks(local: typeof globalThis) {
 	const stocks = db.prepare('SELECT * from stocks').all() as { name: string, price: number, percent_change: string }[];
 
 	stocks.forEach(stock => {
@@ -98,5 +94,5 @@ function modifyStocks() {
 		);
 	});
 
-	stocksNeededTime = Date.now() + 60000;
+	local.stocksNeededTime = Date.now() + 60000;
 }
