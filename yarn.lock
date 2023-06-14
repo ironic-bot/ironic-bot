@@ -2223,9 +2223,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-js@npm:^0.35.3":
-  version: 0.35.3
-  resolution: "image-js@npm:0.35.3"
+"image-js@npm:^0.35.4":
+  version: 0.35.4
+  resolution: "image-js@npm:0.35.4"
   dependencies:
     "@swiftcarrot/color-fns": ^3.2.0
     blob-util: ^2.0.2
@@ -2252,7 +2252,7 @@ __metadata:
     robust-point-in-polygon: ^1.0.3
     tiff: ^5.0.2
     web-worker-manager: ^0.2.0
-  checksum: 57e7f1e858bd96266239358dd718d3a71dc0c564f9f0c4863338a7bd5b4ab5870ee863ec862d40d44b0caa09e3d6667091da2153efc5b8fd27f4da88038ab1c6
+  checksum: e477723563fdc7ed65a868d3e61a07670c3906107a0f0dd8d6dbdc2021a4d12f8193ab74eeca9c0673dd221185b7b05ccd076653a06d596901a2cacfe010a247
   languageName: node
   linkType: hard
 
@@ -2355,7 +2355,7 @@ __metadata:
     eslint-config-prettier: ^8.8.0
     express: ^4.18.2
     got: ^13.0.0
-    image-js: ^0.35.3
+    image-js: ^0.35.4
     nodemon: ^2.0.22
     prettier: ^2.8.8
     rimraf: ^5.0.0
