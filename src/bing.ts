@@ -321,17 +321,12 @@ class Chatbot {
 
 // Exports
 
-let realBot: Chatbot;
-
 export async function initialize() {
-    realBot = new Chatbot();
-    await realBot.getChatHub();
+    const chatBot = new Chatbot();
+    await chatBot.getChatHub();
+    return chatBot;
 }
 
-export async function ask(prompt: string, conversationStyle?: ConversationStyle) {
-    return await realBot.ask(prompt, conversationStyle);
-}
-
-export async function reset() {
-    await realBot.reset();
+export async function ask(chatBot: Chatbot, prompt: string, conversationStyle?: ConversationStyle) {
+    return await chatBot.ask(prompt, conversationStyle);
 }

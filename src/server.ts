@@ -1,5 +1,7 @@
 import * as Express from 'express';
 import express from 'express';
+import queryString from 'query-string';
+import got from 'got';
 import { Client } from 'discord.js';
 import { db } from './glob.js';
 const app = express();
@@ -107,6 +109,81 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
       error: "Not found."
     });
   }
+});
+
+app.get('/authorizeSpotify', (req: Express.Request, res: Express.Response) => {
+  const state = req.query.state || null;
+
+  if (state === null || !global.spotifyStates.findLast(x => x.state === state)) {
+    res.status(401).send({
+      error: "Unauthorized"
+    });
+  } else {
+    res.redirect('https://accounts.spotify.com/authorize?' +
+      queryString.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-top-read',
+        redirect_uri: process.env.SPOTIFY_REDIRECT_URI,
+        state: state
+      }));
+  }
+});
+
+app.get('/spotifyCallback', (req: Express.Request, res: Express.Response) => {
+  const code = req.query.code || null;
+  const state = req.query.state || null;
+
+  if (state === null) {
+    res.redirect('/#' +
+      queryString.stringify({
+        error: 'state_mismatch'
+      }));
+  } else {
+    got.post('https://accounts.spotify.com/api/token', {
+      form: {
+        code: code,
+        redirect_uri: process.env.SPOTIFY_REDIRECT_URI,
+        grant_type: 'authorization_code'
+      },
+      headers: {
+        'Authorization': 'Basic ' + Buffer.from(process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET).toString('base64')
+      }
+    }).json().then((data: { access_token: string; token_type: string; expires_in: number; refresh_token: string; scope: string; }) => {
+      const realStateIndex = global.spotifyStates.findLastIndex(x => x.state === state);
+
+      if (realStateIndex > -1) {
+        const realState = global.spotifyStates[realStateIndex];
+
+        const spotifyData = db
+          .prepare(
+            'SELECT * FROM spotify WHERE user_id = ?',
+          )
+          .get(realState.userId) as { user_id: string; access_token: string; refresh_token: string };
+
+        if (spotifyData) {
+          db.prepare(
+            'UPDATE spotify SET access_token = ?, refresh_token = ? WHERE user_id = ?',
+          ).run(
+            data.access_token,
+            data.refresh_token,
+            realState.userId
+          );
+        } else {
+          db.prepare(
+            'INSERT INTO spotify (user_id, access_token, refresh_token) VALUES (?, ?, ?)',
+          ).run(
+            realState.userId,
+            data.access_token,
+            data.refresh_token
+          );
+        }
+
+        global.spotifyStates.splice(realStateIndex, 1);
+      }
+    });
+  }
+  res.end();
 });
 
 app.use((_req: express.Request, res: express.Response) => {
