@@ -10,7 +10,7 @@
     "@types/tough-cookie": "^4.0.2",
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
+    "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "nodemon": "^2.0.22",
