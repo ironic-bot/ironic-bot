@@ -7,7 +7,7 @@ export default class WordCountMiddleware implements IMiddleware {
     async run(_client: Client, message: Message): Promise<void> {
         if (message.guild == null) return;
 
-        const existingWords = db.prepare('SELECT word from WORDS').all().map((x: { word: string }) => x.word);
+        const existingWords = (db.prepare('SELECT word from WORDS').all() as { word: string }[]).map(x => x.word);
 
         const wordData = db
             .prepare(

@@ -149,7 +149,7 @@ app.get('/spotifyCallback', (req: Express.Request, res: Express.Response) => {
       headers: {
         'Authorization': 'Basic ' + Buffer.from(process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET).toString('base64')
       }
-    }).json().then((data: { access_token: string; token_type: string; expires_in: number; refresh_token: string; scope: string; }) => {
+    }).json<{ access_token: string; token_type: string; expires_in: number; refresh_token: string; scope: string; }>().then(data => {
       const realStateIndex = global.spotifyStates.findLastIndex(x => x.state === state);
 
       if (realStateIndex > -1) {

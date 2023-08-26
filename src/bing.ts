@@ -191,8 +191,8 @@ class Conversation {
                 headers: headersInitConver,
                 cookieJar
             })
-            .json()
-            .then((data: { conversationId: string; clientId: string; conversationSignature: string; result: { value: string; message: string | null; }; }) => {
+            .json<{ conversationId: string; clientId: string; conversationSignature: string; result: { value: string; message: string | null; }; }>()
+            .then(data => {
                 this.struct = data;
                 if (this.struct.result.value === "UnauthorizedRequest") {
                     throw this.struct.result.message;
@@ -278,12 +278,13 @@ class ChatHub {
 class Chatbot {
     private cookiePath: string;
     private cookies?: Record<string, string>[];
-    private chatHub: ChatHub;
+    private chatHub!: ChatHub;
 
     constructor(cookiePath = "", cookies?: Record<string, string>[]) {
         this.cookiePath = cookiePath;
         this.cookies = cookies;
         (async () => {
+            // @ts-ignore
             const conversation = new Conversation(this.cookiePath, this.cookies);
             await conversation.getStruct();
             this.chatHub = new ChatHub(conversation);

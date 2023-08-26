@@ -5,7 +5,6 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 } from 'discord.js';
-import fs from 'fs';
 import { getRandomNumberBetween } from '../utils.js';
 
 type YourStocks = {
@@ -21,7 +20,7 @@ type YourStocks = {
 	cnm: number;
 }
 
-const jobMessages = JSON.parse(fs.readFileSync(new URL('../../jobMessages.json', import.meta.url), 'utf-8'));
+import jobMessages from '../../jobMessages.json' assert { type: 'json' };
 
 export default class implements ICommand {
 	data = new SlashCommandBuilder()

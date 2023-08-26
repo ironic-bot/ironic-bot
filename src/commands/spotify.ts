@@ -48,9 +48,9 @@ export default class implements ICommand {
                 .get(interaction.user.id) as { user_id: string; access_token: string; refresh_token: string };
 
             if (spotifyData) {
-                new Promise((resolve, reject) => {
+                new Promise<Paging<Track>>((resolve, reject) => {
                     (async () => {
-                        resolve(await got.get('https://api.spotify.com/v1/me/top/tracks', {
+                        await got.get('https://api.spotify.com/v1/me/top/tracks', {
                             headers: {
                                 'Authorization': 'Bearer ' + spotifyData.access_token
                             }
@@ -78,9 +78,9 @@ export default class implements ICommand {
                                     }
                                 }).json<Paging<Track>>());
                             }).catch(() => reject());
-                        }));
+                        });
                     })();
-                }).then(async (json: Paging<Track>) => {
+                }).then(async json => {
                     const stuffy = json.items.map(x => x.name + ' by ' + x.artists.map(x => x.name).join(', '));
 
                     const bingEngine = await bing.initialize();
