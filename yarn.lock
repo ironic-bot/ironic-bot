@@ -1538,10 +1538,10 @@ ignore@^5.2.0, ignore@^5.2.4:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
   integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
 
-image-js@^0.35.4:
-  version "0.35.4"
-  resolved "https://registry.yarnpkg.com/image-js/-/image-js-0.35.4.tgz#cbd35baf97df1d0a22945cbfe1044f8fedb5aaa8"
-  integrity sha512-DI0O6PPrBv0nY/+ON/VluS3rkqyOiOAUGfmsX5OdKN5a0yLaX4iFPQvWKrqSLBZAs6QJMemgJcl4D+KgwBxPiw==
+image-js@^0.35.5:
+  version "0.35.5"
+  resolved "https://registry.yarnpkg.com/image-js/-/image-js-0.35.5.tgz#96168ca8b9b2e2792ebd9a924c9c30dba7f1923d"
+  integrity sha512-JCtn+ggFG6qkVaKZkJDnMMLO6Xg9/WVDK+BIWcXHwT+XEdu8dzp/nlYzB5opxBkIoitWB2GGYRpF69WQmucJhQ==
   dependencies:
     "@swiftcarrot/color-fns" "^3.2.0"
     blob-util "^2.0.2"
