@@ -260,10 +260,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.4.tgz#0b92dcc0cc1c81f6f306a381f28e31b1a56536e9"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
-"@types/better-sqlite3@^7.6.6":
-  version "7.6.6"
-  resolved "https://registry.yarnpkg.com/@types/better-sqlite3/-/better-sqlite3-7.6.6.tgz#d4c21613df0518be58d56ae4d58576121a6f56fa"
-  integrity sha512-nuFAptzt0hZYBvyLzKQCbuCCK+RN9PHH4ezar5EJLIg2qpVhwQ/uLvLO/K8A9O7N8DafawgFupiyXQSs0U48Ng==
+"@types/better-sqlite3@^7.6.7":
+  version "7.6.7"
+  resolved "https://registry.yarnpkg.com/@types/better-sqlite3/-/better-sqlite3-7.6.7.tgz#9c2998fcb219e10cabaa7b7c2c1281d0deeafca8"
+  integrity sha512-+c2YGPWY5831v3uj2/X0HRTK94u1GXU3sCnLqu7AKlxlSfawswnAiJR//TFzSL5azWsLQkG/uS+YnnqHtuZxPw==
   dependencies:
     "@types/node" "*"
 
