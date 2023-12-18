@@ -790,10 +790,10 @@ cheminfo-types@^1.7.2:
   resolved "https://registry.yarnpkg.com/cheminfo-types/-/cheminfo-types-1.7.2.tgz#15e77fa571abf80b47c9f002ad926d400369d16b"
   integrity sha512-Zz7HPnh6wB2beEK7nfsXlNSK1Tpl4O0DpYUod8L6gI/5+INpn/d5UgJLI+3ck6CYY5Qsq34ylyKhERmZ5Wks2A==
 
-chess.js@^1.0.0-beta.5:
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/chess.js/-/chess.js-1.0.0-beta.6.tgz#c8bd5d26890421472fba2bbb0819820accd084a9"
-  integrity sha512-sqBfX1VL3csSyqVM5ogbKA+aRlZyWDh276ruWXphwI0lDUMs7iYjZs29BOi49f7mXeunJE7cdfnIZhihsyLnsA==
+chess.js@^1.0.0-beta.7:
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/chess.js/-/chess.js-1.0.0-beta.7.tgz#33cce95273c3d139ef1a1722ab8d0c5b21fdfcea"
+  integrity sha512-2qG/f3M9Lil/hBey2uoJy9zhNr1BWIXZngRUJFt7j1QqS5Y5Ywq8Rd3l7ZBCbyJjhsLhxTcVhv6xy7BfjC19Dw==
 
 chokidar@^3.5.2:
   version "3.5.3"
