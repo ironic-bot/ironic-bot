@@ -78,12 +78,12 @@ export default class implements ICommand {
 
                             const accept = new ButtonBuilder()
                                 .setCustomId('accept')
-                                .setLabel('Yes!')
+                                .setLabel('Yes')
                                 .setStyle(ButtonStyle.Success);
 
                             const cancel = new ButtonBuilder()
                                 .setCustomId('cancel')
-                                .setLabel('No.')
+                                .setLabel('No')
                                 .setStyle(ButtonStyle.Danger);
 
                             const row = new ActionRowBuilder<ButtonBuilder>().addComponents(accept, cancel);

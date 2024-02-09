@@ -20,7 +20,7 @@ type YourStocks = {
 	cnm: number;
 }
 
-import jobMessages from '../../jobMessages.json' assert { type: 'json' };
+import jobData from '../../jobData.json' assert { type: 'json' };
 
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
@@ -187,7 +187,7 @@ export default class implements ICommand {
 				await interaction.reply(`You have ¥${userData.money}.`);
 				break;
 			case 'work': {
-				const job = jobMessages[Math.floor(Math.random() * jobMessages.length)];
+				const job = jobData[Math.floor(Math.random() * jobData.length)];
 				const payment = getRandomNumberBetween(job.min, job.max);
 
 				userData.money += payment;

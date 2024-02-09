@@ -11,32 +11,32 @@ export default class implements ICommand {
 		.setName('poll')
 		.setDescription('Creates a poll.')
 		.addStringOption(option => option.setName('question').setDescription("The question to ask").setRequired(true))
-		.addStringOption(option => option.setName('answeri').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerii').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answeriii').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answeriv').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerv').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answervi').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answervii').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerviii').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerix').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerx').setDescription("A custom answer"))
-		.addStringOption(option => option.setName('answerxi').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer1').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer2').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer3').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer4').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer5').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer6').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer7').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer8').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer9').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer10').setDescription("A custom answer"))
+		.addStringOption(option => option.setName('answer11').setDescription("A custom answer"))
 
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		const pollArgs = [
 			interaction.options.getString('question'),
-			interaction.options.getString('answeri'),
-			interaction.options.getString('answerii'),
-			interaction.options.getString('answeriii'),
-			interaction.options.getString('answeriv'),
-			interaction.options.getString('answerv'),
-			interaction.options.getString('answervi'),
-			interaction.options.getString('answervii'),
-			interaction.options.getString('answerviii'),
-			interaction.options.getString('answerix'),
-			interaction.options.getString('answerx'),
-			interaction.options.getString('answerxi'),
+			interaction.options.getString('answer1'),
+			interaction.options.getString('answer2'),
+			interaction.options.getString('answer3'),
+			interaction.options.getString('answer4'),
+			interaction.options.getString('answer5'),
+			interaction.options.getString('answer6'),
+			interaction.options.getString('answer7'),
+			interaction.options.getString('answer8'),
+			interaction.options.getString('answer9'),
+			interaction.options.getString('answer10'),
+			interaction.options.getString('answer11'),
 		].filter(x => x);
 		if (pollArgs.length == 1) {
 			await interaction.reply({ content: "Poll sent!", ephemeral: true })

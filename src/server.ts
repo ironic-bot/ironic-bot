@@ -1,6 +1,5 @@
 import * as Express from 'express';
 import express from 'express';
-import RateLimit from 'express-rate-limit';
 import queryString from 'query-string';
 import got from 'got';
 import { Client } from 'discord.js';
@@ -25,14 +24,6 @@ type DBData = {
 
 app.use(express.json());
 
-// set up rate limiter: maximum of five requests per minute
-const limiter = RateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // max 100 requests per windowMs
-});
-
-// apply rate limiter to all requests
-app.use(limiter);
 
 app.use((_req: express.Request, res: express.Response, next: express.NextFunction) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
