@@ -42,7 +42,7 @@
     "express": "^4.19.2",
     "got": "^14.4.1",
     "image-js": "^0.35.6",
-    "query-string": "^9.0.0",
+    "query-string": "^9.1.0",
     "spotify-types": "^1.0.7",
     "tough-cookie": "^4.1.4",
     "uuid": "^10.0.0",
