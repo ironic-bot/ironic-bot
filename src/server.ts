@@ -19,7 +19,6 @@ type DBData = {
   total_xp: number;
   last_message_time: number;
   username: string;
-  discriminator: string;
   avatar: string;
 }
 
@@ -91,8 +90,8 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
           icon: guild?.icon
         },
         settings: {
-          minRange: settings.rank_min_range,
-          maxRange: settings.rank_max_range
+          minRange: settings?.rank_min_range ?? 15,
+          maxRange: settings?.rank_max_range ?? 25
         },
         roles: roles.map(x => {
           return {
@@ -105,7 +104,6 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
           return {
             id: x.user_id,
             username: x.username ?? 'Unknown User',
-            discriminator: x.discriminator ?? '0000',
             avatar: x.avatar ?? 'https://cdn.discordapp.com/embed/avatars/1.png',
             xp: x.xp,
             level: x.level
