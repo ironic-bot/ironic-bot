@@ -2567,7 +2567,7 @@ __metadata:
     tough-cookie: "npm:^4.1.4"
     tslib: "npm:^2.6.3"
     tsutils: "npm:^3.21.0"
-    tsx: "npm:^4.16.2"
+    tsx: "npm:^4.16.3"
     typescript: "npm:^5.5.4"
     uuid: "npm:^10.0.0"
     ws: "npm:^8.18.0"
@@ -4526,9 +4526,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.16.2":
-  version: 4.16.2
-  resolution: "tsx@npm:4.16.2"
+"tsx@npm:^4.16.3":
+  version: 4.16.3
+  resolution: "tsx@npm:4.16.3"
   dependencies:
     esbuild: "npm:~0.21.5"
     fsevents: "npm:~2.3.3"
@@ -4538,7 +4538,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 8/bd481097d4614b9d40e7e2c44f7078d9f92b0050e959574a7a88ad8af33327d787f9d76c89689ee19b1275270038705fb9851055ae1a20e15d1c62a34d51a8fd
+  checksum: 10c0/bb7e5fa8c5fbb3f7f4a1de3142d617139158cbfa5bbb02927fe2bdf792ac7202aa1b63e33a31fa43050fe9666b15c20f516947ea938cb327e926933fd2c56ee4
   languageName: node
   linkType: hard
 
