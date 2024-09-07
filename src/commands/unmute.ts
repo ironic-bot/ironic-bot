@@ -15,6 +15,8 @@ export default class implements ICommand {
 		.addUserOption(option => option.setName('target').setDescription('The user to unmute').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers);
 
+	guildOnly = true;
+
 	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (!interaction.member) return;
 		if (!interaction.guild) return;

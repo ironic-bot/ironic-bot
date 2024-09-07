@@ -57,7 +57,14 @@ client.on('ready', async () => {
 			const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 			await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
-				body: Array.from(commands.values()).map(x => x.data)
+				body: Array.from(commands.values()).map(x => {
+					let newData = x.data as any;
+					if (!x.guildOnly) {
+						newData.integration_types = [0, 1];
+						newData.contexts = [0, 1, 2];
+					}
+					return newData;
+				}),
 			});
 		} catch (e) {
 			console.log(e);

@@ -1,5 +1,6 @@
 import { ICommand } from '../interfaces/ICommand.js';
 import {
+	ChannelType,
 	ChatInputCommandInteraction,
 	Client,
 	EmbedBuilder,
@@ -23,7 +24,14 @@ export default class implements ICommand {
 		.addStringOption(option => option.setName('answer10').setDescription("A custom answer"))
 		.addStringOption(option => option.setName('answer11').setDescription("A custom answer"))
 
+	guildOnly = true;
+
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
+		if (interaction.channel?.type !== ChannelType.GuildText) {
+			await interaction.reply({ content: "Not implemented!", ephemeral: true });
+			return;
+		}
+		
 		const pollArgs = [
 			interaction.options.getString('question'),
 			interaction.options.getString('answer1'),

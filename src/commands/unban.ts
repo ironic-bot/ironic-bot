@@ -13,6 +13,8 @@ export default class implements ICommand {
 		.addStringOption(option => option.setName('target').setDescription('The ID of user to unban').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers);
 
+	guildOnly = true;
+
 	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (!interaction.member) return;
 		if (!interaction.guild) return;

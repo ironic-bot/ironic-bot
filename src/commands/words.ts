@@ -13,6 +13,8 @@ export default class implements ICommand {
         .setDescription("Shows an user's (or the server's) top 10 words.")
         .addUserOption(option => option.setName('target').setDescription('The user to check'));
 
+    guildOnly = true;
+
     async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (!interaction.member) return;
         if (!interaction.guild) return;

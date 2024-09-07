@@ -25,6 +25,8 @@ export default class implements ICommand {
                 .addRoleOption(option => option.setName('role').setDescription('The role'))
         )
 
+    guildOnly = true;
+
     async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (interaction.options.getSubcommand() === 'rankmin' || interaction.options.getSubcommand() === 'rankmax') {
 

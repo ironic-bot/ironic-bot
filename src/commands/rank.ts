@@ -18,6 +18,8 @@ export default class implements ICommand {
 		.setDescription("Shows an user's rank in the server.")
 		.addUserOption(option => option.setName('target').setDescription('The user to check'));
 
+	guildOnly = true;
+
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (interaction.guild == null) return;
 

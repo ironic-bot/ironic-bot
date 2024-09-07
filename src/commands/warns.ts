@@ -13,6 +13,8 @@ export default class implements ICommand {
 		.setDescription("Look at an user's warns.")
 		.addUserOption(option => option.setName('target').setDescription("The user to look at").setRequired(true))
 
+	guildOnly = true;
+
 	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (!interaction.member) return;
 		if (!interaction.guild) return;

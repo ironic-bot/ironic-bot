@@ -16,6 +16,8 @@ export default class implements ICommand {
 		.addStringOption(option => option.setName('reason').setDescription('The reason').setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers);
 
+	guildOnly = true;
+
 	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (!interaction.member) return;
 		if (!interaction.guild) return;
