@@ -1,5 +1,5 @@
 import { ICommand } from '../interfaces/ICommand.js';
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, Client, Message, SlashCommandBuilder } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, Client, InteractionResponse, SlashCommandBuilder } from 'discord.js';
 import { Chess } from 'chess.js';
 import canvasPkg, { Canvas, CanvasRenderingContext2D, loadImage, Image, registerFont } from 'canvas';
 const { createCanvas } = canvasPkg;
@@ -40,7 +40,7 @@ const chesses:
         white: string;
         black: string;
         chess: Chess;
-        message: Message;
+        message: InteractionResponse;
         canvas: Canvas;
         ctx: CanvasRenderingContext2D;
         coordPieces: CoordPieces;
@@ -130,24 +130,17 @@ export default class implements ICommand {
 
                                     drawMoves(ctx, images, coordPieces, chess);
 
-                                    const message = await interaction.channel?.send({ content: `White is ${interaction.user.tag} and black is ${userToPlayWith?.tag}!`, files: [{ attachment: canvas.toBuffer(), name: 'chess.png' }] });
-
-                                    if (message) {
-                                        chesses.push({
-                                            white: interaction.user.id,
-                                            black: userToPlayWith.id,
-                                            chess: chess,
-                                            message: message,
-                                            canvas: canvas,
-                                            ctx: ctx,
-                                            coordPieces: coordPieces,
-                                            images: images
-                                        });
-
-                                        await confirmation.update({ content: 'New game started!', components: [] });
-                                    } else {
-                                        await confirmation.update({ content: 'Game failed to create.', components: [] });
-                                    }
+                                    const message = await confirmation.update({ content: `White is ${interaction.user.tag} and black is ${userToPlayWith?.tag}!`, files: [{ attachment: canvas.toBuffer(), name: 'chess.png' }], components: [] });
+                                    chesses.push({
+                                        white: interaction.user.id,
+                                        black: userToPlayWith.id,
+                                        chess: chess,
+                                        message: message,
+                                        canvas: canvas,
+                                        ctx: ctx,
+                                        coordPieces: coordPieces,
+                                        images: images
+                                    });
                                 } else if (confirmation.customId === 'cancel') {
                                     await confirmation.update({ content: 'Game cancelled.', components: [] });
                                 }
@@ -189,24 +182,17 @@ export default class implements ICommand {
 
                         drawMoves(ctx, images, coordPieces, chess);
 
-                        const message = await interaction.channel?.send({ content: `White is ${interaction.user.tag} and black is ${userToPlayWith?.tag}!`, files: [{ attachment: canvas.toBuffer(), name: 'chess.png' }] });
-
-                        if (message) {
-                            chesses.push({
-                                white: interaction.user.id,
-                                black: 'auto',
-                                chess: chess,
-                                message: message,
-                                canvas: canvas,
-                                ctx: ctx,
-                                coordPieces: coordPieces,
-                                images: images
-                            });
-
-                            await interaction.reply({ content: 'New game started!' });
-                        } else {
-                            await interaction.reply({ content: 'Game failed to create.' });
-                        }
+                        const message = await interaction.reply({ content: `White is ${interaction.user.tag} and black is ${userToPlayWith?.tag}!`, files: [{ attachment: canvas.toBuffer(), name: 'chess.png' }] });
+                        chesses.push({
+                            white: interaction.user.id,
+                            black: 'auto',
+                            chess: chess,
+                            message: message,
+                            canvas: canvas,
+                            ctx: ctx,
+                            coordPieces: coordPieces,
+                            images: images
+                        });
                     }
                 } else {
                     await interaction.reply({ content: "You're already in a game!", ephemeral: true });
