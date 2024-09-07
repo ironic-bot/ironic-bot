@@ -74,7 +74,7 @@ export default class XPMiddleware implements IMiddleware {
 			}
 		} else
 			db.prepare(
-				'INSERT INTO levels (guild_id, user_id, username, avatar, xp, level, total_xp, last_message_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				'INSERT INTO levels (guild_id, user_id, username, avatar, xp, level, total_xp, last_message_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
 			).run(
 				message.guild.id,
 				message.author.id,
