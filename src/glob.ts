@@ -25,11 +25,6 @@ export function initDb() {
 	);
 
 	db.exec(
-		'CREATE TABLE IF NOT EXISTS spotify (user_id TINYTEXT, access_token TEXT, refresh_token TEXT);'
-	);
-
-
-	db.exec(
 		'CREATE TABLE IF NOT EXISTS stocks (name TINYTEXT, price INT, percent_change TINYTEXT)'
 	);
 

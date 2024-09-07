@@ -6,7 +6,7 @@ Revolutionize Your Discord Experience.
 
 # Setup
 1. Copy/rename the `.env.example` file as `.env`
-2. Fill the values. The cookie file is created with Cookie-Editor on the Bing.com website. Note that this may be a privacy issue, so you don't need it unless you want the Bing command. (And we recommend using a new account for this - not your main)
+2. Fill the values.
 3. Install the Node.js packages with `yarn install` or `npm install`
 4. Build the bot with `yarn build` or `npm run build`
 5. Now you can start it with `yarn start` or `npm start`!

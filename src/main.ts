@@ -10,9 +10,6 @@ import { commands, db, initDb } from './glob.js';
 import * as server from './server.js';
 import { calculatePercentageChange, getRandomNumberBetween } from './utils.js';
 
-global.chatBots = [];
-global.spotifyStates = [];
-
 const client = new Client({
 	intents:
 		GatewayIntentBits.Guilds |
