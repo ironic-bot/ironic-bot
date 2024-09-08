@@ -4,6 +4,7 @@ import {
 	EmbedBuilder,
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
+	ChannelType,
 } from 'discord.js';
 import { commands } from '../glob.js';
 
@@ -17,12 +18,13 @@ export default class implements ICommand {
 			.setColor('#0099ff')
 			.setTitle('Command list');
 		for (const command of commands.values()) {
-			embed.addFields([
-				{
-					name: '/' + JSON.parse(JSON.stringify(command.data)).name,
-					value: JSON.parse(JSON.stringify(command.data)).description,
-				},
-			]);
+			if (!command.guildOnly || (command.guildOnly && interaction.channel?.type === ChannelType.GuildText))
+				embed.addFields([
+					{
+						name: '/' + JSON.parse(JSON.stringify(command.data)).name,
+						value: JSON.parse(JSON.stringify(command.data)).description,
+					},
+				]);
 		}
 		await interaction.reply({ embeds: [embed] });
 	}

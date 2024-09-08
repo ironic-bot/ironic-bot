@@ -23,6 +23,9 @@ export function initDb() {
 	db.exec(
 		'CREATE TABLE IF NOT EXISTS eco (user_id TINYTEXT, money BIGINT)'
 	);
+	db.exec(
+		'CREATE TABLE IF NOT EXISTS info (guild_id TINYTEXT, tag TINYTEXT, content TEXT);',
+	);
 
 	db.exec(
 		'CREATE TABLE IF NOT EXISTS stocks (name TINYTEXT, price INT, percent_change TINYTEXT)'
