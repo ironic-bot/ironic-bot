@@ -2511,7 +2511,7 @@ __metadata:
     express-rate-limit: "npm:^7.4.0"
     got: "npm:^14.4.2"
     image-js: "npm:^0.35.6"
-    nodemon: "npm:^3.1.4"
+    nodemon: "npm:^3.1.5"
     prettier: "npm:^3.3.3"
     query-string: "npm:^9.1.0"
     rimraf: "npm:^6.0.1"
@@ -3429,9 +3429,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:^3.1.4":
-  version: 3.1.4
-  resolution: "nodemon@npm:3.1.4"
+"nodemon@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "nodemon@npm:3.1.5"
   dependencies:
     chokidar: "npm:^3.5.2"
     debug: "npm:^4"
@@ -3445,7 +3445,7 @@ __metadata:
     undefsafe: "npm:^2.0.5"
   bin:
     nodemon: bin/nodemon.js
-  checksum: 8/3f003fc2c7bdaba559108320f188b7cb063220455e5da218ff3bf4f7468ad7059852da6e35a52b8c690cc27f6e36a433a9ad1f1bdb8096ec1ee3d930629cbeca
+  checksum: 10c0/9282b6d1480e13aabd295b817a31f0d2345fb35de71e80caaaf0623ed7ec67fa2503429fe91e1f1979ecfba4d85d20183df5cbb1b87f36c273ff13686f819e6b
   languageName: node
   linkType: hard
 
