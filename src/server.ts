@@ -95,6 +95,7 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
           return {
             id: x.role_id,
             name: guild?.roles.cache.get(x.role_id)?.name,
+            color: guild?.roles.cache.get(x.role_id)?.hexColor,
             level: x.level
           };
         }),
