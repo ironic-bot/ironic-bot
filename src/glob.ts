@@ -33,7 +33,7 @@ export function initDb() {
 
 	const stocks = db.prepare('SELECT * from stocks').all();
 
-	if(stocks.length < 1) {
+	if (stocks.length < 1) {
 		db.exec(
 			`INSERT INTO stocks VALUES ('CRL', '1000', '0%'),
 			('CHC', '1000', '0%'),

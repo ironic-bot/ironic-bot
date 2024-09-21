@@ -8,13 +8,12 @@ export function getRandomNumberBetween(min: number, max: number) {
 
 export function calculatePercentageChange(initialValue: number, changeValue: number) {
 	const percentageChange = ((changeValue - initialValue) / Math.abs(initialValue)) * 100;
-  
+
 	if (percentageChange > 0) {
-	  return '+' + percentageChange.toFixed(2) + '%'; // Positive change
+		return '+' + percentageChange.toFixed(2) + '%'; // Positive change
 	} else if (percentageChange < 0) {
-	  return percentageChange.toFixed(2) + '%'; // Negative change
+		return percentageChange.toFixed(2) + '%'; // Negative change
 	} else {
-	  return '0%'; // No change
+		return '0%'; // No change
 	}
-  }
-  
+}

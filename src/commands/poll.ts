@@ -31,7 +31,7 @@ export default class implements ICommand {
 			await interaction.reply({ content: "Not implemented!", ephemeral: true });
 			return;
 		}
-		
+
 		const pollArgs = [
 			interaction.options.getString('question'),
 			interaction.options.getString('answer1'),

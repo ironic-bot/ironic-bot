@@ -203,11 +203,11 @@ export default class implements ICommand {
 				await interaction.reply('Stock prices:\n\n' + stocks.map(x => `Name: \`$${x.name.toUpperCase()}\` | Price: \`¥${x.price}\` | Change: \`${x.percent_change}\``).join('\n') + `\n\nThese update every minute, so the next update will be in ${Math.floor((global.stocksNeededTime - Date.now()) / 1000)} seconds. **Buy low, sell high!**`);
 				break;
 			case 'lookyou':
-				if(yourStocks) {
+				if (yourStocks) {
 					let yourStocksThing = Object.entries(yourStocks);
 					yourStocksThing.shift();
 					yourStocksThing = yourStocksThing.filter(x => (x[1] as number) > 0);
-					if(yourStocksThing.length < 1) {
+					if (yourStocksThing.length < 1) {
 						await interaction.reply("You don't own any stocks!");
 						return;
 					}
@@ -217,14 +217,14 @@ export default class implements ICommand {
 				}
 				break;
 			case 'buy':
-				if(!(!yourStocks || yourStocks[stockName ?? ''] < 100)) {
+				if (!(!yourStocks || yourStocks[stockName ?? ''] < 100)) {
 					await interaction.reply({
 						content: "You have too many of these stocks!",
 					});
 					return;
 				}
 
-				if(userData.money < stocksPrice) {
+				if (userData.money < stocksPrice) {
 					await interaction.reply({
 						content: "You don't have enough money!",
 					});
@@ -237,7 +237,7 @@ export default class implements ICommand {
 					interaction.user.id,
 				);
 
-				if(yourStocks) {
+				if (yourStocks) {
 					db.prepare(`UPDATE owned_stocks SET ${stockName} = ? WHERE user_id = ?`).run(
 						yourStocks[stockName ?? ''] + stockQuantity,
 						interaction.user.id,
@@ -262,7 +262,7 @@ export default class implements ICommand {
 				await interaction.reply(`You bought ${stockQuantity} stocks from $${stockName?.toUpperCase()} for ¥${stocksPrice}!`);
 				break;
 			case 'sell':
-				if(!yourStocks || yourStocks[stockName ?? ''] > (stockQuantity ?? 0)) {
+				if (!yourStocks || yourStocks[stockName ?? ''] > (stockQuantity ?? 0)) {
 					await interaction.reply({
 						content: "You don't have enough of these stocks!",
 					});
