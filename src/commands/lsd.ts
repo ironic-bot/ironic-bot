@@ -19,7 +19,7 @@ export default class implements ICommand {
 			await interaction.editReply({
 				files: [{ attachment: Buffer.from(filtered.toBuffer()), name: 'result.png' }],
 			});
-		} catch(e) { 
+		} catch { 
 			await interaction.editReply('Something went wrong!');
 		}
 	}

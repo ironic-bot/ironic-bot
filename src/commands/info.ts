@@ -53,7 +53,7 @@ export default class implements ICommand {
 
                 await interaction.showModal(modal);
             } else if (interaction.options.getSubcommand() === 'delete') {
-
+                interaction.reply('delete');
             }
         }
     }

@@ -144,7 +144,7 @@ export default class implements ICommand {
                                 } else if (confirmation.customId === 'cancel') {
                                     await confirmation.update({ content: 'Game cancelled.', components: [] });
                                 }
-                            } catch (e) {
+                            } catch {
                                 await interaction.editReply({ content: 'Confirmation not received within 1 minute, cancelling...', components: [] });
                             }
                         } else {

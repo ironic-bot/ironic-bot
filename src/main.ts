@@ -58,7 +58,10 @@ client.on('ready', async () => {
 
 			await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
 				body: Array.from(commands.values()).map(x => {
-					let newData = x.data as any;
+					const newData = x.data as typeof x.data & {
+						integration_types: number[],
+						contexts: number[]
+					};
 					if (!x.guildOnly) {
 						newData.integration_types = [0, 1];
 						newData.contexts = [0, 1, 2];
