@@ -22,7 +22,7 @@ export default class implements ICommand {
 
     guildOnly = true;
 
-    async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
+    async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (interaction.options.getSubcommand() === 'show') {
             interaction.options.getString('tag')
             interaction.reply('show');

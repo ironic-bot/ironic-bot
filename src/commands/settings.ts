@@ -11,17 +11,17 @@ export default class implements ICommand {
             subcommand
                 .setName('rankmin')
                 .setDescription('Minimum XP the bot will give to a player.')
-                .addNumberOption(option => option.setName('xp').setDescription('The minimum XP').setRequired(true)))
+                .addNumberOption(option => option.setName('xp').setDescription('The minimum XP').setMinValue(1).setMaxValue(1e+5).setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rankmax')
                 .setDescription('Maximum XP the bot will give to a player.')
-                .addNumberOption(option => option.setName('xp').setDescription('The maximum XP').setRequired(true)))
+                .addNumberOption(option => option.setName('xp').setDescription('The maximum XP').setMinValue(1).setMaxValue(1e+5).setRequired(true)))
         .addSubcommand(subcommand =>
             subcommand
                 .setName('levelrole')
                 .setDescription('Configures a role to be automatically added at a certain level. Leave role empty to clear.')
-                .addNumberOption(option => option.setName('level').setDescription('The level number').setRequired(true))
+                .addNumberOption(option => option.setName('level').setDescription('The level number').setMinValue(1).setMaxValue(1e+5).setRequired(true))
                 .addRoleOption(option => option.setName('role').setDescription('The role'))
         )
 

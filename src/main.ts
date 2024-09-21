@@ -27,7 +27,7 @@ client.on('ready', async () => {
 	initDb();
 	// Event loader
 	let events: string[];
-	if (!(process.execArgv[1].includes('node_modules/tsx'))) {
+	if (!(process.execArgv[1]?.includes('node_modules/tsx'))) {
 		events = await readdir('./build/src/events')
 	} else {
 		events = await readdir('./src/events');
@@ -40,7 +40,7 @@ client.on('ready', async () => {
 	}
 	// Command loader
 	let commandFiles: string[];
-	if (!(process.execArgv[1].includes('node_modules/tsx'))) {
+	if (!(process.execArgv[1]?.includes('node_modules/tsx'))) {
 		commandFiles = await readdir('./build/src/commands');
 	} else {
 		commandFiles = await readdir('./src/commands');

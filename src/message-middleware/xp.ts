@@ -52,7 +52,7 @@ export default class XPMiddleware implements IMiddleware {
 
 				const roleToAdd = [...roles].sort((a, b) => b.level - a.level).find(x => level >= x.level);
 				if(roleToAdd) {
-					message.member?.roles.add(roleToAdd.role_id);
+					message.member?.roles.add(roleToAdd.role_id).catch(() => {});
 				}
 
 				db.prepare(

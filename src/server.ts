@@ -23,7 +23,7 @@ type DBData = {
 app.use(express.json());
 
 // If not in dev mode..
-if (!(process.execArgv[1].includes('node_modules/tsx'))) {
+if (!(process.execArgv[1]?.includes('node_modules/tsx'))) {
   // set up rate limiter: maximum of five requests per minute
   const limiter = RateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -111,18 +111,18 @@ app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) =>
       });
     } else {
       res.status(404).send({
-        error: "Not found."
+        error: "This server doesn't have a leaderboard."
       });
     }
   } else {
     res.status(404).send({
-      error: "Not found."
+      error: "This server doesn't have a leaderboard."
     });
   }
 });
 
 app.use((_req: express.Request, res: express.Response) => {
-  res.status(404).send({ error: "Not found." });
+  res.status(404).send({ error: "This page doesn't exist." });
 });
 
 export function initialize(clientO: Client) {
