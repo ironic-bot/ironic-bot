@@ -19,5 +19,6 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "rules": {}
+  "rules": {},
+  "files": ["**/*.ts"]
 }
