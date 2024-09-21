@@ -307,7 +307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.11.0":
+"@eslint/js@npm:9.11.0, @eslint/js@npm:^9.11.0":
   version: 9.11.0
   resolution: "@eslint/js@npm:9.11.0"
   checksum: 3e3a8945c7f97b29187f3a6b05c9bb1e3e373d75f94c16b7499565df7c343d5e5e0a14e177bb75c368c6022bb33aa3d17775386a5f39d9085f9f522862d4bd4a
@@ -2175,6 +2175,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globals@npm:^15.9.0":
+  version: 15.9.0
+  resolution: "globals@npm:15.9.0"
+  checksum: 32c4470ffcc26db3ddbc579ddf968b74c26462d1a268039980c2fa2e107090fd442a7a7445d953dc4ee874f68846e713066c5a8e63d146fd9349cd1fc5a6f63d
+  languageName: node
+  linkType: hard
+
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -2484,6 +2491,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ionic@workspace:."
   dependencies:
+    "@eslint/eslintrc": ^3.1.0
+    "@eslint/js": ^9.11.0
     "@types/better-sqlite3": ^7.6.11
     "@types/express": ^4.17.21
     "@types/node": ^22.5.5
@@ -2500,6 +2509,7 @@ __metadata:
     eslint-config-prettier: ^9.1.0
     express: ^4.21.0
     express-rate-limit: ^7.4.0
+    globals: ^15.9.0
     got: ^14.4.2
     image-js: ^0.35.6
     nodemon: ^3.1.7
