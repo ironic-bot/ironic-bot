@@ -2601,7 +2601,7 @@ __metadata:
     tsutils: "npm:^3.21.0"
     tsx: "npm:^4.19.1"
     typescript: "npm:^5.6.3"
-    uuid: "npm:^10.0.0"
+    uuid: "npm:^11.0.2"
     ws: "npm:^8.18.0"
   languageName: unknown
   linkType: soft
@@ -4678,12 +4678,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "uuid@npm:10.0.0"
+"uuid@npm:^11.0.2":
+  version: 11.0.2
+  resolution: "uuid@npm:11.0.2"
   bin:
-    uuid: dist/bin/uuid
-  checksum: 8/4b81611ade2885d2313ddd8dc865d93d8dccc13ddf901745edca8f86d99bc46d7a330d678e7532e7ebf93ce616679fb19b2e3568873ac0c14c999032acb25869
+    uuid: dist/esm/bin/uuid
+  checksum: 10c0/bd0670a0d6f77f1932da7544c51c32ceb467f3835382df2265f3275c4981d32c136a08a4369fb027ecfffd0b2ae48f19a28266ef636c7347264d5720e85d5ba0
   languageName: node
   linkType: hard
 
