@@ -4,7 +4,7 @@
   "description": "Revolutionize Your Discord Experience.",
   "type": "module",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.15.0",
     "@types/better-sqlite3": "^7.6.11",
     "@types/express": "^5.0.0",
