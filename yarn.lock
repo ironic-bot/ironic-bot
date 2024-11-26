@@ -1001,14 +1001,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:^11.5.0":
-  version: 11.5.0
-  resolution: "better-sqlite3@npm:11.5.0"
+"better-sqlite3@npm:^11.6.0":
+  version: 11.6.0
+  resolution: "better-sqlite3@npm:11.6.0"
   dependencies:
-    bindings: "npm:^1.5.0"
-    node-gyp: "npm:latest"
-    prebuild-install: "npm:^7.1.1"
-  checksum: c24200972e11f6f99c4e6538122bd7ec8b31b92b2fa095f4b595cc39fedf924cb0a93fd326f0900415eccdf634367f7bba2ba4eaa4d164edd7352f4cfaaaec51
+    bindings: ^1.5.0
+    node-gyp: latest
+    prebuild-install: ^7.1.1
+  checksum: 8/4570559e8b62da295060b086cfe7902648670863790993be1a43e73867f3d9767598aa52fb8332cf3eb16aa30f3037c3705ce5a195db59c076006067e43eea98
   languageName: node
   linkType: hard
 
@@ -2600,7 +2600,7 @@ __metadata:
     "@types/uuid": ^10.0.0
     "@typescript-eslint/eslint-plugin": ^8.16.0
     "@typescript-eslint/parser": ^8.16.0
-    better-sqlite3: ^11.5.0
+    better-sqlite3: ^11.6.0
     canvas: ^2.11.2
     chess.js: ^1.0.0-beta.8
     discord.js: ^14.16.3
