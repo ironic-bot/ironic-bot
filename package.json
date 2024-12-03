@@ -41,7 +41,7 @@
     "canvas": "^2.11.2",
     "chess.js": "^1.0.0-beta.8",
     "discord.js": "^14.16.3",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "express-rate-limit": "^7.4.1",
     "got": "^14.4.5",
