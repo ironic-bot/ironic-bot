@@ -3,7 +3,7 @@
 
 __metadata:
   version: 8
-  cacheKey: 10
+  cacheKey: 10c0
 
 "@babel/runtime@npm:^7.10.3":
   version: 7.25.6
@@ -1834,12 +1834,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-rate-limit@npm:^7.4.1":
-  version: 7.4.1
-  resolution: "express-rate-limit@npm:7.4.1"
+"express-rate-limit@npm:^7.5.0":
+  version: 7.5.0
+  resolution: "express-rate-limit@npm:7.5.0"
   peerDependencies:
-    express: 4 || 5 || ^5.0.0-beta.1
-  checksum: 10c0/111673b43e7c2eef8bc3b6d5e7b46cabe055782d446b0aa93e55ef277e1c7995366443c16fa92101948dafdf1c4f39523c03adbfcc7c57cbbb9c9131ee374049
+    express: ^4.11 || 5 || ^5.0.0-beta.1
+  checksum: 10c0/3e96afa05b4f577395688ede37e0cb19901f20c350b32575fb076f3d25176209fb88d3648151755c232aaf304147c58531f070757978f376e2f08326449299fd
   languageName: node
   linkType: hard
 
@@ -2599,7 +2599,7 @@ __metadata:
     eslint: "npm:^9.16.0"
     eslint-config-prettier: "npm:^9.1.0"
     express: "npm:^4.21.2"
-    express-rate-limit: "npm:^7.4.1"
+    express-rate-limit: "npm:^7.5.0"
     globals: "npm:^15.13.0"
     got: "npm:^14.4.5"
     image-js: "npm:^0.35.6"
@@ -4605,11 +4605,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
   version: 5.7.2
-  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5adc0c"
+  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/ff27fc124bceb8969be722baa38af945b2505767cf794de3e2715e58f61b43780284060287d651fcbbdfb6f917f4653b20f4751991f17e0706db389b9bb3f75d
+  checksum: 10c0/f3b8082c9d1d1629a215245c9087df56cb784f9fb6f27b5d55577a20e68afe2a889c040aacff6d27e35be165ecf9dca66e694c42eb9a50b3b2c451b36b5675cb
   languageName: node
   linkType: hard
 
