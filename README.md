@@ -1,5 +1,5 @@
 # Ionic
-Revolutionize Your Discord Experience.
+Like the gemstone, but open source!
 
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ionic-bot/bot/badge)](https://www.codefactor.io/repository/github/ionic-bot/bot)

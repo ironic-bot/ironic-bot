@@ -1,7 +1,7 @@
 {
   "name": "ionic",
   "version": "0.0.0",
-  "description": "Revolutionize Your Discord Experience.",
+  "description": "Like the gemstone, but open source!",
   "type": "module",
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
