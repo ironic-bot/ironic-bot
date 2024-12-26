@@ -45,7 +45,7 @@
     "express": "^4.21.2",
     "express-rate-limit": "^7.5.0",
     "got": "^14.4.5",
-    "image-js": "^0.35.6",
+    "image-js": "^0.36.0",
     "query-string": "^9.1.1",
     "tough-cookie": "^5.0.0",
     "uuid": "^11.0.3",
