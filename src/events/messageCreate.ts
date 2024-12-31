@@ -1,4 +1,4 @@
-import { Message, Client } from 'discord.js';
+import { Message, Client, ChannelType } from 'discord.js';
 
 import { IMiddleware } from '../interfaces/IMiddleware.js';
 import XPMiddleware from '../message-middleware/xp.js';
