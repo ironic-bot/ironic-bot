@@ -19,19 +19,15 @@ export default class implements ICommand {
 
 	guildOnly = true;
 
-	async run(client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
+	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (!interaction.member) return;
 		if (!interaction.guild) return;
-		if (!client.user) return; // TypeScript "fix"
 		// Get the member
 
 		const user = interaction.options.getUser('target');
 		if (!user) return;
 
 		const member = interaction.guild.members.cache.get(user.id);
-
-		if (!member) return;
-
 		const reason = interaction.options.getString('reason');
 		if (!member) return;
 		if (!reason) return;

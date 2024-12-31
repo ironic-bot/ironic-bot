@@ -1,6 +1,6 @@
 import { Client, Interaction } from 'discord.js';
 
-import { commands } from '../glob.js';
+import { commands, db } from '../glob.js';
 
 export default async function (client: Client, interaction: Interaction) {
 	if (interaction.isChatInputCommand()) {
@@ -26,7 +26,12 @@ export default async function (client: Client, interaction: Interaction) {
 			const infoTag = interaction.fields.getTextInputValue('tag');
 			const infoContent = interaction.fields.getTextInputValue('content');
 
-			await interaction.reply({ content: [infoTag, infoContent].join(', ') });
+			db.prepare(
+				'INSERT INTO info (guild_id, tag, content) VALUES (?, ?, ?)',
+			).run(
+				interaction.guild?.id, infoTag, infoContent
+			);
+			await interaction.reply({ content: "Created!", ephemeral: true });
 		}
 	}
 }

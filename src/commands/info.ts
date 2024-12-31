@@ -1,4 +1,5 @@
 import { ICommand } from '../interfaces/ICommand.js';
+import { db } from '../glob.js';
 import { ChatInputCommandInteraction, Client, SlashCommandBuilder, ModalBuilder, ModalActionRowComponentBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionsBitField } from 'discord.js';
 
 export default class implements ICommand {
@@ -24,8 +25,7 @@ export default class implements ICommand {
 
     async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
         if (interaction.options.getSubcommand() === 'show') {
-            interaction.options.getString('tag')
-            interaction.reply('show');
+            interaction.reply((db.prepare('SELECT * FROM info WHERE tag = ? AND guild_id = ?').get(interaction.options.getString('tag'), interaction.guild?.id) as { guild_id: string, tag: string, content: string }).content);
         } else {
             if (!(interaction.member?.permissions as Readonly<PermissionsBitField>).has('Administrator')) return;
             if (interaction.options.getSubcommand() === 'create') {
@@ -53,7 +53,8 @@ export default class implements ICommand {
 
                 await interaction.showModal(modal);
             } else if (interaction.options.getSubcommand() === 'delete') {
-                interaction.reply('delete');
+                db.prepare('DELETE FROM info WHERE tag = ? AND guild_id = ?').run(interaction.options.getString('tag'), interaction.guild?.id);
+                interaction.reply({ content: 'Deleted!', ephemeral: true });
             }
         }
     }
